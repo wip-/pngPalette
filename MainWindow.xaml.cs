@@ -129,7 +129,7 @@ namespace pngPalette
             for (uint i=0; i<colorsCount; ++i)
             {
                 byte[] components = Helpers.ReadBytesReverse(br, 3);
-                colorValues[i] = Color.FromArgb(255, (int)components[0], (int)components[1], (int)components[2]);
+                colorValues[i] = Color.FromArgb(255, (int)components[2], (int)components[1], (int)components[0]);
             }
             base.ReadChunkData(br);
         }
@@ -347,7 +347,7 @@ namespace pngPalette
                 Color col = plte.colorValues[i];
                 byte alpha = (i < alphaValuesCount) ? tRNS.alphaValues[i] : (byte)255;
                 int frequency = indexDictionary.ContainsKey((byte)i) ? indexDictionary[(byte)i] : 0;
-                sb.AppendFormat("{0}, {1}, {2}, {3}, {4}, {5} \n", i, col.R, col.G, col.B, col.A, frequency);
+                sb.AppendFormat("{0}, {1}, {2}, {3}, {4}, {5} \n", i, col.R, col.G, col.B, alpha, frequency);
             }
 
         #endif
