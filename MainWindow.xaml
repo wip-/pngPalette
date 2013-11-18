@@ -4,8 +4,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:pngPalette"
         Title="MainWindow" Height="350" Width="525"
-        AllowDrop="True" Drop="Window_OnDrop" >
+        AllowDrop="True" Drop="OnDrop" >
     <Grid>
-        <Label Name="StartupLabel" Content="{x:Static c:MainWindow.StartupText}"/>
+        <ScrollViewer>
+            <TextBox Name="MainTextBox" Text="{x:Static c:MainWindow.StartupText}" 
+                     AllowDrop="True" PreviewDragOver="OnDragOver" Drop="OnDrop"
+                     PreviewMouseDown="OnMouseDown" ContextMenuService.ShowOnDisabled="True">
+                <TextBox.ContextMenu>
+                    <ContextMenu Name="ResultContextMenu" IsEnabled="false" StaysOpen="true">
+                        <MenuItem Header="Save as *.csv" Click="SaveCSV"/>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -1,4 +1,4 @@
 pngPalette
 ==========
 
-TODO: Export png8 palette
+Export png8 palette
