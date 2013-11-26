@@ -326,7 +326,7 @@ namespace pngPalette
 
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Color index, R value, G value, B value, A value, Frequency");
+            sb.AppendLine("Color index, R value, G value, B value, A value, Frequency (BROKEN! TODO fix)");
 
         #if false   // use Bitmap.Palette
 
